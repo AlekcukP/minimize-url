@@ -1,0 +1,85 @@
+<?php
+
+namespace App\Routing;
+
+class Route
+{
+    const METHOD_GET = "GET";
+    const METHOD_POST = "POST";
+
+    /**
+     * Route Path
+     *
+     * @var string
+     */
+    public $path;
+
+    /**
+     * Route Request Method
+     *
+     * @var string
+     */
+    public $method;
+
+    /**
+     * Route Handler
+     *
+     * @var array
+     */
+    public $handler;
+
+    /**
+     * Keep all the routes
+     *
+     * @var array
+     */
+    private static $routes = [];
+
+    /**
+     * Constructor
+     *
+     * @param string $method
+     * @param string $path
+     * @param array $handler
+     */
+    public function __construct($method, $path, $handler)
+    {
+        $this->method = $method;
+        $this->path = $path;
+        $this->handler = $handler;
+    }
+
+    /**
+     * Add GET requests to routes
+     *
+     * @param string $path
+     * @param array $handler
+     * @return void
+     */
+    public static function get($path, $handler)
+    {
+        self::$routes[] = new Route(self::METHOD_GET, $path, $handler);
+    }
+
+    /**
+     * Add POST requests to routes
+     *
+     * @param string $path
+     * @param array $handler
+     * @return void
+     */
+    public static function post($path, $handler)
+    {
+        self::$routes[] = new Route(self::METHOD_POST, $path, $handler);
+    }
+
+    /**
+     * Get the routes array
+     *
+     * @return array
+     */
+    public static function getAll()
+    {
+        return self::$routes;
+    }
+}

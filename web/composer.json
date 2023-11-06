@@ -1,0 +1,17 @@
+{
+    "name": "alekcukp/minimize-url",
+    "description": "URL minimizer allows to create a shortened link making it easy to share",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Oleksii Pokhyl",
+            "email": "alekcukp@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}

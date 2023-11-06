@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+    web:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: minimize-url
+        ports:
+            - "8080:80"
+        volumes:
+            - ./web:/var/www/html
+        depends_on:
+            - db
+        networks:
+            - minimize-net
+    db:
+        image: arm64v8/mariadb
+        hostname: db
+        environment:
+            MYSQL_DATABASE: minimize-db
+            MYSQL_USER: user
+            MYSQL_PASSWORD: pass
+            MYSQL_ROOT_PASSWORD: pass
+        volumes:
+        - ./mysql:/var/lib/mysql
+        ports:
+        - "3306:3306"
+        networks:
+        - minimize-net
+
+networks:
+    minimize-net:
