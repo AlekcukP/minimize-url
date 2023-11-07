@@ -72,6 +72,14 @@ BEGIN
     SET NEW.url_key = urlKey;
 END */;;
 DELIMITER ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`user`@`%`*/ /*!50003 PROCEDURE IncrementUrlMapRedirects(IN url_id VARCHAR(6))
+BEGIN
+    UPDATE url_map
+    SET redirects = redirects + 1
+    WHERE id = url_id;
+END */;;
+DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
