@@ -7,7 +7,7 @@ Introducing application, designed to simplify link sharing with ease. The projec
 
 
 ### Getting Started
-In the root directory, you can utilize the following 'make' commands to manage the Docker containers:
+To explore this project and see it in action, follow these steps:
 
 1. Clone the repository to your local machine:
 ```sh
@@ -38,7 +38,7 @@ In the root directory, you can utilize the following 'make' commands to manage t
 
 
 ### Available Commands
-In the root directory, you can run the following 'make' commands:
+In the root directory, you can utilize the following 'make' commands to manage the Docker containers:
 
 - `make up` <br>
 Runs the Docker containers.
