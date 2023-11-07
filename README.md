@@ -34,7 +34,7 @@ In the root directory, you can utilize the following 'make' commands to manage t
     composer dump-autoload
 ```
 
-5. Open your web browser and go to `http://localhost:8080` to access the application.
+6. Open your web browser and go to `http://localhost:8080` to access the application.
 
 
 ### Available Commands
