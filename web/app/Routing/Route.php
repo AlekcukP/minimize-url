@@ -50,7 +50,7 @@ class Route
     }
 
     /**
-     * Add GET requests to routes
+     * Add GET route
      *
      * @param string $path
      * @param array $handler
@@ -62,7 +62,7 @@ class Route
     }
 
     /**
-     * Add POST requests to routes
+     * Add POST route
      *
      * @param string $path
      * @param array $handler

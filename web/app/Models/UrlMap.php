@@ -60,7 +60,7 @@ class UrlMap
      */
     public static function create($values)
     {
-        $sql = "INSERT INTO " . self::$table_name . " (`original_url`) VALUES (:original_url)";
+        $sql = "INSERT INTO " . self::$table_name . " (`original_url`, `expires_at`) VALUES (:original_url, :expires_at)";
 
         if ($result = DB::query($sql, $values)->run()) {
             return self::findById(DB::insertedId());
@@ -75,7 +75,7 @@ class UrlMap
      * @param int $id
      * @return mixed
      */
-    public static function incrementClickCounter($id)
+    public static function incrementRedirects($id)
     {
         $sql = "CALL IncrementUrlMapRedirects(:id)";
 

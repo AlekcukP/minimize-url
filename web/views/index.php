@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body class="bg-light vh-100">
@@ -14,7 +15,7 @@
         <h1 class="lh-lg text-center text-primary fw-bold m-0">URL Minimizer</h1>
     </header>
 
-    <main class="container bg-3 text-center">
+    <main class="container bg-3 text-center h-75">
         <?= $content; ?>
     </main>
     <br>
@@ -26,11 +27,16 @@
                 <a class="nav-link" href="/">ShortURL</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">URL Click Counter</a>
+                <a class="nav-link" href="/url/counter">URL Click Counter</a>
             </li>
         </ul>
     </footer>
 
 </body>
+
+<script>
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+</script>
 
 </html>

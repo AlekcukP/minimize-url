@@ -1,5 +1,5 @@
 <div class="card w-50 mx-auto border-0 bg-transparent">
-    <div class="card-body text-start">
+    <div class="card-body text-start px-2">
         <h5 class="card-title h2">Your minimized URL</h5>
         <p class="card-text text-start text-nowrap">Copy the shortened link and share it in messages, texts, posts, websites and other locations.</p>
     </div>
@@ -17,7 +17,7 @@
         <p class="card-text text-start">
             Long URL: <a href="<?= $original_url; ?>"><?= $original_url; ?></a>
         </p>
-        <a href="/url/count" class="btn btn-primary">Total of clicks of your short URL</a>
+        <a href="/url/count/<?= $url_key; ?>" class="btn btn-primary">Total of clicks of your short URL</a>
         <a href="/" class="btn btn-primary">Shorten another URL</a>
     </div>
 </div>

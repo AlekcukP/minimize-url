@@ -10,14 +10,23 @@ class IndexController extends Controller
 {
     public function index()
     {
-        return View::render('pages/main.php');
+        return View::render('pages/main.php', [
+            'default_expires_date' => date(
+                'Y-m-d',
+                strtotime(date('Y-m-d') . ' +3 days')
+            )
+        ]);
     }
 
     public function redirect()
     {
-        if ($urlKey = $this->request->params->get('urlKey')) {
-            if ($url = UrlMap::findByKey($urlKey)) {
-                UrlMap::incrementClickCounter($url->id);
+        if ($this->request->params->has('urlKey')) {
+            if ($url = UrlMap::findByKey($this->request->params->get('urlKey'))) {
+                if (strtotime($url->expires_at) < strtotime(date('Y-m-d H:i:s'))) {
+                    return $this->errorView('Link has been expired');
+                }
+
+                UrlMap::incrementRedirects($url->id);
                 return $this->request->redirect($url->original_url);
             }
         }

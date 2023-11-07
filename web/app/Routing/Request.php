@@ -85,6 +85,10 @@ class Request
             if (preg_match($pattern, $this->url, $match) && $route->method === $this->method) {
                 $this->route = $route;
             }
+
+            if (!$this->route) {
+                $this->redirect('/', 300);
+            }
         }
     }
 
