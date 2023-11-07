@@ -49,9 +49,32 @@ class URL
         return filter_var($url, FILTER_VALIDATE_URL);
     }
 
+    /**
+     * Get key from the minimized URL string
+     *
+     * @param string $url
+     * @return string
+     */
     public static function getKeyFromURL($url)
     {
         $parts = explode('/', $url);
         return end($parts);
+    }
+
+    /**
+     * Ensure the URL has a protocol (scheme) and append it if missing
+     *
+     * @param string $url
+     * @return string
+     */
+    public static function ensureScheme($url)
+    {
+        $parsed = parse_url($url);
+
+        if (empty($parsed['scheme'])) {
+            $url = 'https://' . ltrim($url, '/');
+        }
+
+        return $url;
     }
 }

@@ -15,7 +15,9 @@ class UrlController extends Controller
             return $this->errorView('Missed URL string');
         }
 
-        if (!URL::validate($this->request->input->get('u'))) {
+        $original_url = URL::ensureScheme($this->request->input->get('u'));
+
+        if (!URL::validate($original_url)) {
             return $this->errorView('Invalid URL');
         }
 
@@ -24,7 +26,7 @@ class UrlController extends Controller
         }
 
         $url = UrlMap::create([
-            'original_url' => $this->request->input->get('u'),
+            'original_url' => $original_url,
             'expires_at' => date('Y-m-d H:i:s', strtotime($expires_at)),
         ]);
 
