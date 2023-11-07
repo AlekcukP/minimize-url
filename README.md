@@ -37,7 +37,7 @@ In the root directory, you can utilize the following 'make' commands to manage t
 5. Open your web browser and go to `http://localhost:8080` to access the application.
 
 
-### Available Command
+### Available Commands
 In the root directory, you can run the following 'make' commands:
 
 - `make up` <br>
