@@ -5,7 +5,13 @@
         </div>
         <form method="post" action="/url/minimize" class="row mb-2">
             <div class="col-xl-7 col-lg-7 col-md-8 col-sm-12 col-12 mb-sm-1 mb-1">
-                <input type="text" placeholder="Enter the link here" name="u" class="form-control py-3" required>
+                <input
+                    type="text"
+                    placeholder="Enter the link here"
+                    name="u"
+                    class="form-control py-3"
+                    required
+                    >
             </div>
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12 mb-md-2 mb-sm-1 mb-1">
                 <input
