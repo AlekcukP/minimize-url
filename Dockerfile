@@ -53,7 +53,6 @@ COPY ./web /var/www/html
 COPY ./apache/apache.conf /etc/apache2/sites-available/000-default.conf
 
 RUN ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/
-RUN echo "memory_limit=-1" >> /usr/local/etc/php/php.ini
 
 EXPOSE 80
 
