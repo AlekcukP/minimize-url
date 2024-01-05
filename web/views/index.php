@@ -11,17 +11,19 @@
 
 <body class="bg-light vh-100">
 
-    <header class="container-fluid bg-white border-bottom mb-4">
+    <header class="container-fluid bg-white border-bottom mb-4 border-2">
         <h1 class="lh-lg text-center text-primary fw-bold m-0">URL Minimizer</h1>
     </header>
 
     <main class="container bg-3 text-center h-75">
-        <?= $content; ?>
+        <div class="row">
+            <?= $content; ?>
+        </div>
     </main>
     <br>
 
     <footer class="container-fluid bg-dark py-2">
-        <p class="text-white mx-auto my-0 text-center">© 2023 MinimizeUrl.test - Tool to shorten a long link</p>
+        <p class="text-white mx-auto my-0 text-center">© <?= date('Y'); ?> URL Minimizer - Tool to shorten a long link</p>
         <ul class="nav justify-content-center fw-bolder">
             <li class="nav-item">
                 <a class="nav-link" href="/">ShortURL</a>
@@ -35,8 +37,9 @@
 </body>
 
 <script>
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+    document.querySelectorAll('[data-bs-toggle="tooltip"]')?.forEach(
+        tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl)
+    );
 </script>
 
 </html>

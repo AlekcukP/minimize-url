@@ -2,6 +2,8 @@
 
 namespace App\Database;
 
+use App\View\View;
+use App\Controllers\Controller;
 use App\Helpers\Config;
 use PDO;
 
@@ -25,7 +27,12 @@ class Connection
 
             return $connection;
         } catch(\PDOException $e) {
-            echo "Connection error: " . $e->getMessage();
+            http_response_code(500);
+
+            return View::render(
+                "error.php",
+                ["error" => "Connection error: " . $e->getMessage()]
+            );
         }
     }
 }

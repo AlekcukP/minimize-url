@@ -51,35 +51,6 @@ UNLOCK TABLES;
 /*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`user`@`%`*/ /*!50003 TRIGGER set_url_map_values
-BEFORE INSERT ON url_map
-FOR EACH ROW
-BEGIN
-    DECLARE characters CHAR(62);
-    DECLARE urlKey VARCHAR(6);
-    DECLARE i INT;
-
-    SET characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    SET urlKey = '';
-
-    WHILE LENGTH(urlKey) < 6 DO
-        SET i = FLOOR(1 + (RAND() * 62));
-        SET urlKey = CONCAT(urlKey, SUBSTRING(characters, i, 1));
-    END WHILE;
-
-    SET NEW.expires_at = IFNULL(NEW.expires_at, NOW() + INTERVAL 3 DAY);
-    SET NEW.url_key = urlKey;
-END */;;
-DELIMITER ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`user`@`%`*/ /*!50003 PROCEDURE IncrementUrlMapRedirects(IN url_id VARCHAR(6))
-BEGIN
-    UPDATE url_map
-    SET redirects = redirects + 1
-    WHERE id = url_id;
-END */;;
-DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;

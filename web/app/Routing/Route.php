@@ -4,8 +4,8 @@ namespace App\Routing;
 
 class Route
 {
-    const METHOD_GET = "GET";
-    const METHOD_POST = "POST";
+    private const METHOD_GET = "GET";
+    private const METHOD_POST = "POST";
 
     /**
      * Route Path

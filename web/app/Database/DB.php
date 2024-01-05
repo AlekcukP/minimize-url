@@ -38,7 +38,7 @@ class DB
 
         $stmt = $db->prepare($sql);
 
-        $params = array();
+        $params = [];
 
         if ($data) {
             foreach ($data as $key => $value) {
@@ -75,7 +75,7 @@ class DB
         self::$statement->execute(self::$params);
         $total = self::$statement->rowCount();
 
-        $result = array();
+        $result = [];
 
         if ($total > 0) {
             while ($row = self::$statement->fetch(PDO::FETCH_ASSOC)) {
@@ -96,13 +96,14 @@ class DB
         self::$statement->execute(self::$params);
         $total = self::$statement->rowCount();
 
-        $result = array();
+        $result = [];
 
         if ($total > 0) {
             while ($row = self::$statement->fetch(PDO::FETCH_ASSOC)) {
                 array_push($result, (object) $row);
             }
-            return $result[0];
+
+            return array_shift($result);
         } else {
             return null;
         }

@@ -9,7 +9,7 @@ class URL
      *
      * @return string
      */
-    public static function host()
+    public static function getHost()
     {
         return $_SERVER['HTTP_HOST'];
     }
@@ -19,7 +19,7 @@ class URL
      *
      * @return string
      */
-    public static function base()
+    public static function getBaseUrl()
     {
         $hostName = $_SERVER['HTTP_HOST'];
         $protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5)) == 'https://'?'https://':'http://';
@@ -76,5 +76,23 @@ class URL
         }
 
         return $url;
+    }
+
+    /**
+     * Generates a unique URL key of the specified length.
+     *
+     * @param int $length
+     * @return string
+     */
+    public static function generateKey($length = 6) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $urlKey = '';
+
+        for ($i = 0; $i < $length; $i++) {
+            $urlKey .= $characters[rand(0, $charactersLength - 1)];
+        }
+
+        return $urlKey;
     }
 }
