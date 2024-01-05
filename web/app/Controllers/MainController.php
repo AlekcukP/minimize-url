@@ -11,15 +11,10 @@ class MainController extends Controller
 {
     public function displayMainPage()
     {
-        return View::render('pages/main.php', [
-            'default_expires_date' => date(
-                'Y-m-d',
-                strtotime(date('Y-m-d') . ' +3 days')
-            )
-        ]);
+        return View::render('pages/main.php');
     }
 
-    public function redirectToOriginal()
+    public function redirectToOriginalUrl()
     {
         if ($this->request->params->has('urlKey')) {
             if ($url = UrlMap::findByKey($this->request->params->get('urlKey'))) {

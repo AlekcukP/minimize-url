@@ -12,10 +12,10 @@
                     type="date"
                     name="d"
                     class="form-control py-3 fs-6"
-                    value="<?= $default_expires_date; ?>"
+                    value="<?= date('Y-m-d', strtotime(date('Y-m-d') . ' +3 days')); ?>"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
-                    data-bs-title="Click to select when the minimized URL will expire"
+                    data-bs-title="Select date when the minimized URL link will expire"
                 />
             </div>
             <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-12 mb-sm-1 mb-1">
